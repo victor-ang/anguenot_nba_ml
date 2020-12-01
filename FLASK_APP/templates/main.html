@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<style>
+    form {
+        margin: auto;
+        width: 35%;
+    }
+
+    .result {
+        margin: auto;
+        width: 80%;
+        border: 1px solid #ccc;
+    }
+</style>
+
+<head>
+    <title>NBA Predictions</title>
+</head>
+<br>
+<div class="result" align="center">
+    {% if result %}
+    {% for variable, value in original_input.items() %}
+    <b>{{ variable }}</b> : {{ value }} /
+    {% endfor %}
+    <br>
+    <br>
+    <p style="font-size:40px"> Prediction:
+        <p style="font-size:40px">{{ result }}</p>
+        {% endif %}
+</div>
+
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+        Games played:
+        <input name="gp" type="number" step="0.1" required>
+        <br>
+        <br> Minutes played:
+        <input name="mi" type="number" step="0.1" required>
+        <br>
+        <br> Points per game:
+        <input name="pts" type="number" step="0.1" required>
+        <br>
+        <br> Field goals made:
+        <input name="fgm" type="number" step="0.1" required>
+        <br>
+        <br> Field goal attempts:
+        <input name="fga" type="number" step="0.1" required>
+        <br>
+        <br> Field goal percent (%):
+        <input name="fg" type="number" step="0.1" required>
+        <br>
+        <br> 3 point made:
+        <input name="pm" type="number" step="0.1" required>
+        <br>
+        <br> 3 point attempts:
+        <input name="pa" type="number" step="0.1" required>
+        <br>
+        <br> 3 point percent (%):
+        <input name="p" type="number" step="0.1" required>
+        <br>
+        <br> Free throw made:
+        <input name="ftm" type="number" step="0.1" required>
+        <br>
+        <br> Free throw attempts:
+        <input name="fta" type="number" step="0.1" required>
+        <br>
+        <br> Free throw percent (%):
+        <input name="ft" type="number" step="0.1" required>
+        <br>
+        <br> Offensive rebounds:
+        <input name="oreb" type="number" step="0.1" required>
+        <br>
+        <br> Offensive rebounds:
+        <input name="dreb" type="number" step="0.1" required>
+        <br>
+        <br> Rebounds:
+        <input name="reb" type="number" step="0.1" required>
+        <br>
+        <br> Assists:
+        <input name="ast" type="number" step="0.1" required>
+        <br>
+        <br> Steals:
+        <input name="stl" type="number" step="0.1" required>
+        <br>
+        <br> Blocks:
+        <input name="blk" type="number" step="0.1" required>
+        <br>
+        <br> Turnovers:
+        <input name="tov" type="number" step="0.1" required>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+
+</html>
